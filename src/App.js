@@ -9,7 +9,7 @@ function App() {
       <Calculator />
       
       <div className='footer'>
-      <div className="me">Desiged and Coded by <b><a className="link" href="https://www.freecodecamp.org/Arafat_Gz">Arafat Gamzawe</a></b></div>
+      <div className="me"><b>Desiged and Coded by <a className="link" href="https://www.freecodecamp.org/Arafat_Gz">Arafat Gamzawe</a></b></div>
         
         <div>
           <p>Contact me ^_^ :</p>

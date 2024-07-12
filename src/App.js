@@ -9,8 +9,8 @@ function App() {
       <Calculator />
       
       <div className='footer'>
-      <h4>Desiged and Coded by <b><a href="https://www.freecodecamp.org/Arafat_Gz">Arafat Gamzawe</a></b></h4>
-        <div><i><b></b></i></div>
+      <div className="me">Desiged and Coded by <b><a className="link" href="https://www.freecodecamp.org/Arafat_Gz">Arafat Gamzawe</a></b></div>
+        
         <div>
           <p>Contact me ^_^ :</p>
           <a href='https://www.facebook.com/arafat.trans/'><img alt='facebook' className='facebook' src={facebook} /></a>

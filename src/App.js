@@ -13,8 +13,8 @@ function App() {
         <div><i><b></b></i></div>
         <div>
           <p>Contact me ^_^ :</p>
-          <a href='https://www.facebook.com/arafat.trans/'><img className='facebook' src={facebook} /></a>
-          <a href='https://wa.me/967775566782'><img className='whatsapp' src={whatsapp} /></a>
+          <a href='https://www.facebook.com/arafat.trans/'><img alt='facebook' className='facebook' src={facebook} /></a>
+          <a href='https://wa.me/967775566782'><img alt='whatsapp' className='whatsapp' src={whatsapp} /></a>
         </div>
       </div>
     </div>

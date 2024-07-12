@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+
+.footer{
+  margin-top: 25px;
+  font-size: large;
+
+}
+.facebook{
+  height: 25px;
+  margin: 2%;
+}
+.whatsapp{
+  height: 25px;
+  margin: 2%;
+}

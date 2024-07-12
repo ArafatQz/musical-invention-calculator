@@ -1,23 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import Calculator from './calculator/calculator.js';
+import facebook from './calculator/facebook.png';
+import whatsapp from './calculator/whatsapp.png';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Calculator />
+      
+      <div className='footer'>
+      <h4>Desiged and Coded by <strong>Arafat Gamzawe</strong></h4>
+        <div><i><b></b></i></div>
+        <div>
+          <p>Contact me ^_^ :</p>
+          <a href='https://www.facebook.com/arafat.trans/'><img className='facebook' src={facebook} /></a>
+          <a href='https://wa.me/967775566782'><img className='whatsapp' src={whatsapp} /></a>
+        </div>
+      </div>
     </div>
   );
 }

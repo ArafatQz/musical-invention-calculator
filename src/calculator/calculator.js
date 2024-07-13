@@ -7,6 +7,7 @@ const Calculator = () => {
   const [result, setResult] = useState('');
   const [run, setRun] = useState(true);
 
+  const maxLength = 15;
   const operations = '/*-+.';
 
   const checkInput = (e) => {
@@ -14,18 +15,27 @@ const Calculator = () => {
     const currentInput = e.currentTarget.getAttribute('value');
 
     if (operations.includes(currentInput)) {
+
       if (currentInput === prevInput) {
         setEquation((prev) => prev.slice(0, -1));
+
       } else if ((currentInput === '*' && prevInput === '/') || (currentInput === '/' && prevInput === '*')) {
         setEquation((prev) => prev.slice(0, -2) + prev.slice(-1));
-      } else if ((currentInput === '/' || currentInput === '*') && equation.length === 0) {
-        setEquation('');
+
+      } else if ((currentInput === '/' || currentInput === '*')) {
+          if(equation.length === 0){
+            setEquation('');
+          }else if(prevInput === '-' || prevInput === '+'){
+            setEquation(prev => prev.slice(0, -3) + prev.slice(-1))
+          }
+
       } else if (currentInput === '.') {
         // Get the last number part of the equation
-        const lastNumber = equation.split(/[/*\-+]/).pop();
-        if (lastNumber.includes('.')) {
-          setEquation((prev) => prev.slice(0, -1));
-        }
+          const lastNumber = equation.split(/[/*\-+]/).pop();
+          if (lastNumber.includes('.')) {
+            setEquation((prev) => prev.slice(0, -1));
+          }
+
       } else if (currentInput === '+'){
           if(prevInput === '*' || prevInput === '/' || prevInput === '-'){
                
@@ -35,18 +45,21 @@ const Calculator = () => {
                 }
                 setEquation(prev => prev.slice(0, -2) + prev.slice(-1))
           }
-      }
+        } 
     }
     if(equation === '0' && currentInput === '0'){
           setEquation(prev => prev.slice(0, -1))
     }
   };
-
+  const checkOutput = (evalResult) => {
+    if(evalResult.length > maxLength){
+      evalResult = evalResult.slice(0, maxLength)
+    }
+    return evalResult;
+  }
 
   const handleClick = (e) => {
     const buttonValue = e.currentTarget.getAttribute('value');
-    const maxLength = 15;
-
     if (run) {
       if (equation.length < maxLength) {
         if (buttonValue === '.') {
@@ -73,7 +86,8 @@ const Calculator = () => {
 
   const handleEqual = () => {
     try {
-      const evalResult = evaluate(equation).toString();
+      let evalResult = evaluate(equation).toString();
+      evalResult = checkOutput(evalResult)
       setResult(evalResult);
       setEquation(evalResult);
     } catch {

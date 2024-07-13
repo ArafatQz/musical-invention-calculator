@@ -1,6 +1,7 @@
 .App {
   text-align: center;
     transform: scale(0.8); 
+  outline: none;
 }
 
 .App-logo {
